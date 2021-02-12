@@ -10,7 +10,7 @@ test("Can instantiate Manager instance", () => {
 test("Can set office number via constructor arguments", () => {
     const officeNumberValue = 999;
     const managerObj = new Manager('Bob', 1, 'name@email.com', officeNumberValue);
-    expect(managerObj.id).toEqual(expect.any(Number));
+    expect(managerObj.id).toEqual(expect.any(Number)); 
     expect(managerObj.officeNumber).toBe(officeNumberValue);
 });
 

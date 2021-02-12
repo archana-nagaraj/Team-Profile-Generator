@@ -39,22 +39,22 @@ test('creates a Employee object', () => {
   test("Can get name via getName() function", () => {
     const nameValue = 'Bob';
     const employeeObj = new Employee(nameValue);
-    expect(employeeObj.name).toBe(nameValue);
+    expect(employeeObj.getName()).toBe(nameValue);
   });
 
   test("Can get id via getId() function", () => {
     const idValue = 1;
     const employeeObj = new Employee('Bob',idValue);
-    expect(employeeObj.id).toBe(idValue);
+    expect(employeeObj.getId()).toBe(idValue);
   });
 
   test("Can get email via getEmail() function", () => {
     const emailValue = 'name@email.com';
     const employeeObj = new Employee('Bob', 1, emailValue);
-    expect(employeeObj.email).toBe(emailValue);
+    expect(employeeObj.getEmail()).toBe(emailValue);
   });
 
-  test("check getRole() fucntion returns Employee", () => {
+  test("check getRole() function returns Employee", () => {
       const role = "Employee";
       const employeeObj = new Employee('Bob', 1, 'name@email.com');
       expect(employeeObj.getRole()).toBe(role);

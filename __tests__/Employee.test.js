@@ -55,7 +55,7 @@ test('creates a Employee object', () => {
   });
 
   test("check getRole() function returns Employee", () => {
-      const role = "Employee";
+      const role = 'Employee';
       const employeeObj = new Employee('Bob', 1, 'name@email.com');
       expect(employeeObj.getRole()).toBe(role);
   })

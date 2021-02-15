@@ -8,6 +8,7 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const { Console } = require('console');
 const style = require("./src/style");
+const { identity } = require('rxjs');
 //const generateHtmlPage = require('./src/templatePage');
 
 
@@ -18,14 +19,24 @@ let team = [];
 function init() {
     console.log("Welcome to the Team-Profile Generator!")
     inquirer.prompt([
-        {
+        {   
+            type: 'input',
             message: "Please enter a name for your team",
-            name: "teamname"
+            name: "teamname",
+             // Add validation to make sure user entered the input
+            validate: teamname => {
+                if (teamname) {
+                return true;
+                } else {
+                console.log('Please enter the name of the team!');
+                return false;
+                }
+            }
         }
     ])
         .then(function(data){
-            const teamName = data.teamname
-            team.push(teamName)
+            const teamName = data.teamname;
+            team.push(teamName);
             addManager();
         })
 };
@@ -35,33 +46,69 @@ function addManager(){
         {
             type: "input",
             message: "Enter team manager's name: ",
-            name: "name"
+            name: "name",
+            // Add validation to make sure user entered the input
+            validate: name => {
+                if (name) {
+                return true;
+                } else {
+                console.log('Please enter the name of the manager!');
+                return false;
+                }
+            }
         },
         {
             type: "number",
             message: "Enter team manager's employeeID: ",
-            name: "id"
+            name: "id",
+              // Add validation to make sure user entered the input
+            validate: id => {
+                if (id) {
+                return true;
+                } else {
+                console.log('Please enter the id of the manager!');
+                return false;
+                }
+            }
         },
         {
             type: "input",
             message: "Enter team manager's email address: ",
-            name: "email"
+            name: "email",              
+            // Add validation to make sure user entered the input
+            validate: email => {
+                if (email) {
+                return true;
+                } else {
+                console.log('Please enter the email of the manager!');
+                return false;
+                }
+            }
         },
 
         {
             type: "number",
             message: "Enter team manager's office number:",
-            name: "officeNumber"
+            name: "officeNumber",
+             // Add validation to make sure user entered the input
+            validate: officenumber => {
+                if (officenumber) {
+                return true;
+                } else {
+                console.log('Please enter the officenumber of the manager!');
+                return false;
+                }
+            }
         },
     ])
 
         .then(function (data) {
-            const name = data.name
-            const id = data.id
-            const email = data.email
-            const officeNumber = data.officeNumber
-            const teamMember = new Manager(name, id, email, officeNumber)
-            team.push(teamMember)
+            const name = data.name;
+            const id = data.id;
+            const email = data.email;
+            const officeNumber = data.officeNumber;
+            const teamMember = new Manager(name, id, email, officeNumber);
+            team.push(teamMember);
             addTeamMembers();
         });
 
@@ -72,33 +119,69 @@ function addEngineer(){
         {
             type: 'input',
             message: "Enter engineer's name",
-            name: "name"
+            name: "name",
+            // Add validation to make sure user entered the input
+            validate: name => {
+                if (name) {
+                return true;
+                } else {
+                console.log('Please enter the name of the Engineer!');
+                return false;
+                }
+            }
         },
         {
             type: "number",
             message: "Enter engineer's ID",
-            name: "id"
+            name: "id",
+            // Add validation to make sure user entered the input
+            validate: id => {
+                if (id) {
+                return true;
+                } else {
+                console.log('Please enter the id of the Engineer!');
+                return false;
+                }
+            }
         },
         {
             type: 'input',
             message: "Enter engineer's email address",
-            name: "email"
+            name: "email",
+            // Add validation to make sure user entered the input
+            validate: email => {
+                if (email) {
+                return true;
+                } else {
+                console.log('Please enter the email of the Engineer!');
+                return false;
+                }
+            }
         },
         {
             type: 'input',
-            message: "Enter engineer's Github profile",
-            name: "github"
+            message: "Enter engineer's Github username",
+            name: "github",
+            // Add validation to make sure user entered the input
+            validate: github => {
+                if (github) {
+                return true;
+                } else {
+                console.log('Please enter the github username of the Engineer!');
+                return false;
+                }
+            }
         }
     ])
 
         .then(function (data) {
-            const name = data.name
-            const id = data.id
-            const email = data.email
-            const github = data.github
-            const teamMember = new Engineer(name, id, email, github)
+            const name = data.name;
+            const id = data.id;
+            const email = data.email;
+            const github = data.github;
+            const teamMember = new Engineer(name, id, email, github);
             team.push(teamMember)
-            addTeamMembers()
+            addTeamMembers();
         });   
 };
 
@@ -107,33 +190,69 @@ function addIntern(){
         {
             type: 'input',
             message: "Enter intern's name: ",
-            name: "name"
+            name: "name",
+            // Add validation to make sure user entered the input
+            validate: name => {
+                if (name) {
+                return true;
+                } else {
+                console.log('Please enter the name of the Intern!');
+                return false;
+                }
+            }
         },
         {
             type: "number",
             message: "Enter intern's ID",
-            name: "id"
+            name: "id",
+             // Add validation to make sure user entered the input
+             validate: id => {
+                if (id) {
+                return true;
+                } else {
+                console.log('Please enter the id of the Intern!');
+                return false;
+                }
+            }
         },
         {
             type: 'input',
             message: "Enter intern's email address: ",
-            name: "email"
+            name: "email",
+             // Add validation to make sure user entered the input
+             validate: email => {
+                if (email) {
+                return true;
+                } else {
+                console.log('Please enter the email of the Intern!');
+                return false;
+                }
+            }
         },
         {
             type: 'input',
             message: "Enter intern's school: ",
-            name: "school"
+            name: "school",
+             // Add validation to make sure user entered the input
+             validate: school => {
+                if (school) {
+                return true;
+                } else {
+                console.log('Please enter the school of the Intern!');
+                return false;
+                }
+            }
         }
     ])
 
         .then(function (data) {
-            const name = data.name
-            const id = data.id
-            const email = data.email
-            const school = data.school
-            const teamMember = new Intern(name, id, email, school)
-            team.push(teamMember)
-            addTeamMembers()
+            const name = data.name;
+            const id = data.id;
+            const email = data.email;
+            const school = data.school;
+            const teamMember = new Intern(name, id, email, school);
+            team.push(teamMember);
+            addTeamMembers();
         });
 };
 
@@ -152,7 +271,6 @@ function addTeamMembers() {
                 case "Yes, add an engineer":
                     addEngineer();
                     break;
-
                 case "Yes, add an intern":
                     addIntern();
                     break;
@@ -166,7 +284,7 @@ function addTeamMembers() {
     // function to display the added team in a html page
 function displayTeamProfile(){
     console.log(team);
-    console.log("//////////You've done it!!! Now give your team a raise.////////")
+    console.log("Done! Checkout 'dist' folder for the generated html page");
 
     const htmlArray = []
     const htmlStart = `
@@ -178,7 +296,6 @@ function displayTeamProfile(){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>${team[0]}</title>
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
      ${style}
     </style>
@@ -196,7 +313,7 @@ function displayTeamProfile(){
         <div class="member-card">
             <div class="card-top">
                 <h2>${team[i].name}</h2>
-                <h2><i class="far fa-user">${team[i].getRole()}</h2>
+                <h2>${team[i].getRole()}</h2>
             </div>
             <div class="card-bottom">
                     <p>Employee ID: ${team[i].id}</p>

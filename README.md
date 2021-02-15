@@ -6,7 +6,7 @@
 
 ## Description
 
-This is a Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person. Because testing is key to making code maintainable, valid unit tests are written for each part of the code.
+This is a Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person. Because testing is key to make code maintainable, valid unit tests are written for each part of the code.
 
 
 ## Table of Contents
@@ -19,6 +19,7 @@ This is a Node.js command-line application that takes in information about emplo
 * [Usage](#usage)
 * [Tests](#Unittests)
 * [License](#license)
+* [ThanksTo](#ThanksTo)
 * [Questions](#questions)
 
 
@@ -45,12 +46,13 @@ This is a Node.js command-line application that takes in information about emplo
 
 ### Demonstration
 
-Demo video: [Team Profile Generator Demo](https://drive.google.com/file/d/1UjqaENPhlYIMao5IW-FpiURSwRQk2Zpt/view)
+Demo video: [Team Profile Generator Demo](https://drive.google.com/file/d/1xruWh77JkcMHes5SPob56vi8gimT51sI/view)
 
-![promtps](./images/prompts.png)
+#### Unittests
+![unittests](./assets/images/runUnitTests.gif)
 
-### Output HTML file
-![Output HTML page](./images/generatedREADME.png)
+#### Output HTML file
+![Output HTML page](./assets/images/generatedHTML.png)
 
 
 ## Technologies
@@ -59,7 +61,7 @@ Demo video: [Team Profile Generator Demo](https://drive.google.com/file/d/1UjqaE
 * [Inquirer.js](https://www.npmjs.com/package/inquirer)
 * [Jest](https://jestjs.io/)
 
-## Installation
+### Installation
 
 To install dependencies, run the following:
 
@@ -68,22 +70,29 @@ To install dependencies, run the following:
       npm install jest --save-dev 
 
 
-## Usage
+### Usage
 
 After installing the dependencies, run the application with 
 
       node index.js
 
-## UnitTests
+### UnitTests
 
 Run the following command in the terminal  
 
     npm run test
       
 
-## License
+### License
 
 This repository is licensed under the [MIT license](./LICENSE).
+
+
+
+### ThanksTo
+
+* Course material, class instructor and TA's for their support.
+* Special thanks to [StackOverflow](https://stackoverflow.com/) for helping in completing this project. 
 
 
 ## Questions
